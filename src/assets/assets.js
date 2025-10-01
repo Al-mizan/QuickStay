@@ -81,7 +81,7 @@ export const assets = {
 export const cities = [
     "Dubai",
     "Singapore",
-    "New York",
+    "Dhaka",
     "London",
 ];
 
@@ -95,7 +95,7 @@ export const exclusiveOffers = [
 // Testimonials Dummy Data
 export const testimonials = [
     { id: 1, name: "Emma Rodriguez", address: "Barcelona, Spain", image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200", rating: 5, review: "I've used many booking platforms before, but none compare to the personalized experience and attention to detail that QuickStay provides." },
-    { id: 2, name: "Liam Johnson", address: "New York, USA", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200", rating: 4, review: "QuickStay exceeded my expectations. The booking process was seamless, and the hotels were absolutely top-notch. Highly recommended!" },
+    { id: 2, name: "Liam Johnson", address: "Dhaka, USA", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200", rating: 4, review: "QuickStay exceeded my expectations. The booking process was seamless, and the hotels were absolutely top-notch. Highly recommended!" },
     { id: 3, name: "Sophia Lee", address: "Seoul, South Korea", image: "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=200", rating: 5, review: "Amazing service! I always find the best luxury accommodations through QuickStay. Their recommendations never disappoint!" }
 ];
 
@@ -127,9 +127,44 @@ export const userDummyData = {
     "updatedAt": "2025-04-10T06:34:48.719Z",
     "__v": 1,
     "recentSearchedCities": [
-        "New York"
+        "Dhaka"
     ]
 }
+
+export const hotelDummyDates = [
+    {
+        "tag": "Best Seller",
+        "image": roomImg1,
+        "title": "Deluxe Room",
+        "location": "Main Street 123, Colony, Savar",
+        "rating": 4.5,
+        "pricePerNight": 199,
+    },
+    {
+        "tag": "New",
+        "image": roomImg2,
+        "title": "Luxury Suite",
+        "location": "10 no road, 13 Colony, Mirpur-10",
+        "rating": 4.8,
+        "pricePerNight": 299,
+    },
+    {
+        "tag": "",
+        "image": roomImg3,
+        "title": "Standard Room",
+        "location": "Gerua, Potenga, Chattogram",
+        "rating": 4.2,
+        "pricePerNight": 149,
+    },
+    {
+        "tag": "Limited Offer",
+        "image": roomImg4,
+        "title": "Executive Room",
+        "location": "Gulshan, Dhaka",
+        "rating": 4.7,
+        "pricePerNight": 249,
+    }
+]
 
 // Hotel Dummy Data
 export const hotelDummyData = {
@@ -138,7 +173,7 @@ export const hotelDummyData = {
     "address": "Main Road  123 Street , 23 Colony",
     "contact": "+0123456789",
     "owner": userDummyData,
-    "city": "New York",
+    "city": "Dhaka",
     "createdAt": "2025-04-10T06:22:11.663Z",
     "updatedAt": "2025-04-10T06:22:11.663Z",
     "__v": 0

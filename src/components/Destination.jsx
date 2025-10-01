@@ -1,19 +1,24 @@
 import React from "react";
 import Card from "./Card";
+import { hotelDummyDates } from "../assets/assets";
 
 export default function Destination() {
   return (
-    <div className="container items-center justify-center text-center py-20">
+    <div className="container mx-auto max-w-[1700px] z-50 sm:px-8 md:px-10 lg:px-20 xl:px-32 items-center justify-center text-center py-20">
       <div className="max-w-3xl mx-auto py-15">
         <h1 className="text-4xl font-['Playfair_Display'] mb-4">
-          Featured Destination
+          Featured Destinations
         </h1>
         <p className="text-md text-gray-500">
           Discover our handpicked selection of exceptional properties around the
           world, offering unparalleled luxury and unforgettable experiences.
         </p>
       </div>
-      <Card />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {hotelDummyDates.map((c, index) => (
+          <Card key={index} {...c} />
+        ))}
+      </div>
     </div>
   );
 }
