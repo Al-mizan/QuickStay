@@ -15,7 +15,8 @@ export default function Hero() {
     const checkIn =
       checkInRef.current?.querySelector("calendar-date")?.value || checkInDate;
     const checkOut =
-      checkOutRef.current?.querySelector("calendar-date")?.value || checkOutDate;
+      checkOutRef.current?.querySelector("calendar-date")?.value ||
+      checkOutDate;
     console.log("Check-in:", checkIn, "Check-out:", checkOut);
   };
 
@@ -75,7 +76,10 @@ export default function Hero() {
                 onChange={(date) => setCheckOutDate(date)}
               />
             </div>
-            <button onClick={handleSearch} className="btn btn-primary h-full items-center">
+            <button
+              onClick={handleSearch}
+              className="btn btn-primary h-full items-center"
+            >
               Search
             </button>
           </div>

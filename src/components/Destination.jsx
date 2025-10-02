@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import DestinationCard from "./DestinationCard";
 import { hotelDummyDates } from "../assets/assets";
 
 export default function Destination() {
@@ -16,7 +16,7 @@ export default function Destination() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {hotelDummyDates.map((c, index) => (
-          <Card key={index} {...c} />
+          <DestinationCard key={index} {...c} />
         ))}
       </div>
       <div>

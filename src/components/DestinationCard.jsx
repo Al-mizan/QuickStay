@@ -4,7 +4,7 @@ import locationIcon from "../assets/locationIcon.svg";
 
 // console.log(assets.locationIcon);
 
-Card.propTypes = {
+DestinationCard.propTypes = {
   tag: PropTypes.string,
   image: PropTypes.string,
   title: PropTypes.string,
@@ -13,7 +13,7 @@ Card.propTypes = {
   pricePerNight: PropTypes.string,
 };
 
-Card.defaultProps = {
+DestinationCard.defaultProps = {
   tag: "",
   image:
     "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
@@ -23,7 +23,7 @@ Card.defaultProps = {
   pricePerNight: "$100/night",
 };
 
-export default function Card({
+export default function DestinationCard({
   tag,
   image,
   title,
@@ -52,7 +52,10 @@ export default function Card({
           {location}
         </div>
         <div className="card-footer flex justify-between items-center">
-          <div><span className="font-bold text-xl">${pricePerNight}</span><span className="text-gray-400 font-semibold">/night</span></div>
+          <div>
+            <span className="font-bold text-xl">${pricePerNight}</span>
+            <span className="text-gray-400 font-semibold">/night</span>
+          </div>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">Book Now</button>
           </div>
