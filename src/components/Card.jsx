@@ -32,7 +32,7 @@ export default function Card({
   pricePerNight,
 }) {
   return (
-    <div className="card bg-base-100 w-70 shadow-sm">
+    <div className="card bg-base-100 w-70 shadow-md">
       <figure className="relative">
         {tag && (
           <span className="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full">

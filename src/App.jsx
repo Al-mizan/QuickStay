@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Destination from "./components/Destination";
+import ExclusiveOffer from "./components/ExclusiveOffer";
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <Destination />
+      <ExclusiveOffer />
     </>
   );
 }

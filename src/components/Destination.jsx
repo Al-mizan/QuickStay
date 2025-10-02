@@ -4,7 +4,7 @@ import { hotelDummyDates } from "../assets/assets";
 
 export default function Destination() {
   return (
-    <div className="container mx-auto max-w-[1700px] z-50 sm:px-8 md:px-10 lg:px-20 xl:px-32 items-center justify-center text-center py-20">
+    <div className="container mx-auto max-w-[1700px] z-50 sm:px-8 md:px-10 lg:px-20 xl:px-32 items-center justify-center text-center pt-15 pb-5">
       <div className="max-w-3xl mx-auto py-15">
         <h1 className="text-4xl font-['Playfair_Display'] mb-4">
           Featured Destinations
@@ -18,6 +18,11 @@ export default function Destination() {
         {hotelDummyDates.map((c, index) => (
           <Card key={index} {...c} />
         ))}
+      </div>
+      <div>
+        <button type="button" className="btn btn-primary my-20">
+          View All Destinations
+        </button>
       </div>
     </div>
   );

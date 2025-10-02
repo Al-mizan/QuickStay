@@ -36,7 +36,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`navbar fixed top-0 opacity-90 mx-auto max-w-[1700px] z-50 sm:px-8 md:px-10 lg:px-20 xl:px-32 ${
+      className={`navbar fixed top-0 opacity-95 backdrop-blur-md mx-auto max-w-[1700px] z-50 sm:px-8 md:px-10 lg:px-20 xl:px-32 ${
         scrolled ? "bg-base-100 shadow-sm" : "bg-transparent dark:text-white"
       } transition-colors duration-300`}
     >
