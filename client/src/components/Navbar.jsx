@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 export default function Navbar() {
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Hotel", path: "/hotel" },
+    { name: "Exclusive Offers", path: "/exclusive-offers" },
+    { name: "About", path: "/about" },
+  ];
+
   const [theme, setTheme] = useState(() => {
-    // check localStorage first
     if (localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
     }
-    // else match system preference
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
@@ -63,47 +69,41 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-md text-[16px] dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a href="#home">Home</a>
-            </li>
-            <li>
-              <a href="#hotel">Hotel</a>
-            </li>
-            <li>
-              <a href="#exclusive-offers">Exclusive Offers</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                {link.path.startsWith("/") ? (
+                  <Link to={link.path}>{link.name}</Link>
+                ) : (
+                  <a href={link.path}>{link.name}</a>
+                )}
+              </li>
+            ))}
           </ul>
         </div>
-        <a id="home" className="btn btn-ghost text-xl">
-          <img
-            src={
-              scrolled
-                ? theme === "dark"
-                  ? assets.logo
-                  : assets.logo_dark
-                : assets.logo
-            }
-            alt="logo"
-          />
-        </a>
+          <Link to="/" id="home" className="btn btn-ghost text-xl">
+            <img
+              src={
+                scrolled
+                  ? theme === "dark"
+                    ? assets.logo
+                    : assets.logo_dark
+                  : assets.logo
+              }
+              alt="logo"
+            />
+          </Link>
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu text-[16px] menu-horizontal px-1">
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#hotel">Hotel</a>
-          </li>
-          <li>
-            <a href="#exclusive-offers">Exclusive Offers</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              {link.path.startsWith("/") ? (
+                <Link to={link.path}>{link.name}</Link>
+              ) : (
+                <a href={link.path}>{link.name}</a>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
       <div className="navbar-end gap-5">
