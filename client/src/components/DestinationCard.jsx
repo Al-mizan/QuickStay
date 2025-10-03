@@ -32,7 +32,7 @@ export default function DestinationCard({
   pricePerNight,
 }) {
   return (
-    <div className="card bg-base-100 w-70 shadow-md">
+    <div className="card bg-base-200 group w-70 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
       <figure className="relative">
         {tag && (
           <span className="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full">

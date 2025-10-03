@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Destination from "./components/Destination";
 import ExclusiveOffer from "./components/ExclusiveOffer";
+import Reviews from "./components/Reviews";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -11,6 +13,8 @@ export default function App() {
       <Hero />
       <Destination />
       <ExclusiveOffer />
+      <Reviews />
+      <Footer />
     </>
   );
 }

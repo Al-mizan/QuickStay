@@ -29,7 +29,7 @@ export default function ExclusiveOfferCard({
 }) {
   return (
     <div className="card bg-base-100 image-full w-96 shadow-sm group">
-      <figure>
+      <figure className="filter brightness-[3]">
         <img src={image} alt="Shoes" />
       </figure>
       <div className="card-body">

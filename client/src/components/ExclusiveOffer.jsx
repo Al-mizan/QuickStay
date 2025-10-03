@@ -5,7 +5,7 @@ import { TiArrowRightOutline } from "react-icons/ti";
 
 export default function ExclusiveOffer() {
   return (
-    <div className="container mx-auto max-w-[1700px] z-50 sm:px-8 md:px-10 lg:px-20 xl:px-32 items-center justify-center pb-5">
+    <div className="container mx-auto max-w-[1700px] -mt-10 z-50 sm:px-8 md:px-10 lg:px-20 xl:px-32 mb-25 items-center justify-center">
       <div className="flex flex-row justify-between items-center">
         <div>
           <div className="text-4xl font-['Playfair_Display'] mb-4">
