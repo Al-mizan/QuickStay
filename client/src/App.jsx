@@ -1,26 +1,22 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-// import Hero from "./components/Hero";
-// import Destination from "./components/Destination";
-// import ExclusiveOffer from "./components/ExclusiveOffer";
-import Reviews from "./components/Reviews";
-import Footer from "./components/Footer";
 import { useLocation, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import AllRooms from "./pages/AllRooms";
 
 export default function App() {
   const isOwnerPath = useLocation().pathname.includes("owner");
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       {!isOwnerPath && <Navbar />}
-      {/* <Hero /> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-      {/* <Destination /> */}
-      {/* <ExclusiveOffer /> */}
-      <Reviews />
-      <Footer /> 
-    </>
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rooms" element={<AllRooms />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }

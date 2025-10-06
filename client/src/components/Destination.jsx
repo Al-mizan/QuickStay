@@ -14,7 +14,7 @@ export default function Destination() {
         subtitle="Discover our handpicked selection of exceptional properties around the
         world, offering unparalleled luxury and unforgettable experiences."
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-15">
         {roomsDummyData.slice(0, 4).map((room, index) => (
           <DestinationCard key={room._id} room={room} index={index} />
         ))}

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function Title({ title, subtitle, align = "center" }) {
   return (
-    <div className={`max-w-3xl mx-auto py-15 text-${align}`}>
+    <div className={`max-w-3xl mx-auto text-${align}`}>
       <h1 className="text-4xl md:text-[40px] font-['Playfair_Display'] mb-4">
         {title}
       </h1>

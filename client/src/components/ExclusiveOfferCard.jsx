@@ -28,9 +28,9 @@ export default function ExclusiveOfferCard({
   image,
 }) {
   return (
-    <div className="card bg-base-100 image-full w-96 shadow-sm group">
+    <div className="card bg-base-100 image-full object-cover w-full h-64 md:h-auto md:w-96 shadow-sm group">
       <figure className="filter brightness-[3]">
-        <img src={image} alt="Shoes" />
+        <img src={image} alt="Shoes" className="object-contain w-full h-full" />
       </figure>
       <div className="card-body">
         <span className="bg-white text-black text-xs font-semibold px-2 py-1 rounded-full w-17 text-center">

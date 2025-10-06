@@ -10,7 +10,7 @@ export default function Reviews() {
         title="What Our Guests Say"
         subtitle="Discover why discerning travelers consistently choose QuickStay for their exclusive and luxurious accommodations around the world."
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mt-15">
         {testimonials.map((testimonial, index) => (
           <ReviewCard key={index} {...testimonial} />
         ))}

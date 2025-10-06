@@ -26,7 +26,7 @@ const BookIcon = () => (
 export default function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Hotel", path: "/hotel" },
+    { name: "Hotel", path: "/rooms" },
     { name: "Exclusive Offers", path: "/exclusive-offers" },
     { name: "About", path: "/about" },
   ];

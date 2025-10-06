@@ -165,7 +165,7 @@ export const hotelDummyDatas = [
         "pricePerNight": 249,
     }
 ]
-
+ 
 // Hotel Dummy Data
 export const hotelDummyData = {
     "_id": "67f76393197ac559e4089b72",
@@ -185,6 +185,7 @@ export const roomsDummyData = [
         "_id": "67f7647c197ac559e4089b96",
         "hotel": hotelDummyData,
         "roomType": "Double Bed",
+        "rating": 4,
         "pricePerNight": 399,
         "amenities": ["Room Service", "Mountain View", "Pool Access"],
         "images": [roomImg1, roomImg2, roomImg3, roomImg4],
@@ -197,6 +198,7 @@ export const roomsDummyData = [
         "_id": "67f76452197ac559e4089b8e",
         "hotel": hotelDummyData,
         "roomType": "Double Bed",
+        "rating": 5,
         "pricePerNight": 299,
         "amenities": ["Room Service", "Mountain View", "Pool Access"],
         "images": [roomImg2, roomImg3, roomImg4, roomImg1],
@@ -209,6 +211,7 @@ export const roomsDummyData = [
         "_id": "67f76406197ac559e4089b82",
         "hotel": hotelDummyData,
         "roomType": "Double Bed",
+        "rating": 5,
         "pricePerNight": 249,
         "amenities": ["Free WiFi", "Free Breakfast", "Room Service"],
         "images": [roomImg3, roomImg4, roomImg1, roomImg2],
@@ -221,6 +224,7 @@ export const roomsDummyData = [
         "_id": "67f763d8197ac559e4089b7a",
         "hotel": hotelDummyData,
         "roomType": "Single Bed",
+        "rating": 4,
         "pricePerNight": 199,
         "amenities": ["Free WiFi", "Room Service", "Pool Access"],
         "images": [roomImg4, roomImg1, roomImg2, roomImg3],
