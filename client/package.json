@@ -1,5 +1,5 @@
 {
-  "name": "chandrabindu_hotel",
+  "name": "quick_stays_client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.50.0",
     "@tailwindcss/vite": "^4.1.13",
     "cally": "^0.8.0",
     "react": "^19.1.1",

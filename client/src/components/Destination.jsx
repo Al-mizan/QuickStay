@@ -1,6 +1,6 @@
 import React from "react";
 import DestinationCard from "./DestinationCard";
-import { hotelDummyDates } from "../assets/assets";
+import { roomsDummyData } from "../assets/assets";
 
 export default function Destination() {
   return (
@@ -12,11 +12,11 @@ export default function Destination() {
         <p className="text-md text-gray-500">
           Discover our handpicked selection of exceptional properties around the
           world, offering unparalleled luxury and unforgettable experiences.
-        </p>
+        </p> 
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {hotelDummyDates.map((c, index) => (
-          <DestinationCard key={index} {...c} />
+        {roomsDummyData.slice(0, 4).map((room, index) => (
+          <DestinationCard key={room._id} room={room} index={index} />
         ))}
       </div>
       <div>

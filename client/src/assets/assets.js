@@ -131,7 +131,7 @@ export const userDummyData = {
     ]
 }
 
-export const hotelDummyDates = [
+export const hotelDummyDatas = [
     {
         "tag": "Best Seller",
         "image": roomImg1,

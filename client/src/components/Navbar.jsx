@@ -1,6 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { useClerk, useUser, UserButton } from "@clerk/clerk-react";
+
+const BookIcon = () => (
+  <svg
+    className="w-4 h-4 text-gray-700"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4"
+    />
+  </svg>
+);
 
 export default function Navbar() {
   const navLinks = [
@@ -9,6 +30,12 @@ export default function Navbar() {
     { name: "Exclusive Offers", path: "/exclusive-offers" },
     { name: "About", path: "/about" },
   ];
+
+  const { openSignIn } = useClerk();
+  const { user } = useUser();
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [theme, setTheme] = useState(() => {
     if (localStorage.getItem("theme")) {
@@ -28,17 +55,23 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+
+    if(location.pathname !== "/") {
+      setScrolled(true);
+      return;
+    }
+    else {
+      setScrolled(false);
+    }
+    setScrolled(prev => location.pathname !== "/" ? true : prev);
+
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+        setScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <div
@@ -56,18 +89,19 @@ export default function Navbar() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md text-[16px] dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className={`menu menu-md text-[16px] dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow ${
+              theme === "dark" ? "text-white" : "text-black"
+            }`}
           >
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -78,20 +112,26 @@ export default function Navbar() {
                 )}
               </li>
             ))}
+            <button
+              className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all`}
+              onClick={() => navigate("/owner")}
+            >
+              Dashboard
+            </button>
           </ul>
         </div>
-          <Link to="/" id="home" className="btn btn-ghost text-xl">
-            <img
-              src={
-                scrolled
-                  ? theme === "dark"
-                    ? assets.logo
-                    : assets.logo_dark
-                  : assets.logo
-              }
-              alt="logo"
-            />
-          </Link>
+        <Link to="/" id="home" className="btn btn-ghost hover:bg-transparent hover:text-inherit hover:border-transparent hover:shadow-none text-xl">
+          <img
+            src={
+              scrolled
+                ? theme === "dark"
+                  ? assets.logo
+                  : assets.logo_dark
+                : assets.logo
+            }
+            alt="logo"
+          />
+        </Link>
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu text-[16px] menu-horizontal px-1">
@@ -104,6 +144,14 @@ export default function Navbar() {
               )}
             </li>
           ))}
+          <button
+            className={`border ml-6 px-4 py-1 text-sm font-light rounded-full cursor-pointer ${
+              scrolled ? "text-black" : "text-white"
+            } transition-all`}
+            onClick={() => navigate("/owner")}
+          >
+            Dashboard
+          </button>
         </ul>
       </div>
       <div className="navbar-end gap-5">
@@ -156,7 +204,21 @@ export default function Navbar() {
             </g>
           </svg>
         </label>
-        <a className="btn btn-primary rounded-full px-6">Login</a>
+        {user ? (
+          <UserButton>
+            <UserButton.MenuItems>
+              <UserButton.Action
+                label="My Bookings"
+                labelIcon={<BookIcon />}
+                onClick={() => navigate("/my-bookings")}
+              />
+            </UserButton.MenuItems>
+          </UserButton>
+        ) : (
+          <a onClick={openSignIn} className="btn btn-primary rounded-full px-6">
+            Login
+          </a>
+        )}
       </div>
     </div>
   );
