@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AllRooms from "./pages/AllRooms";
+import RoomDetails from "./pages/RoomDetails";
 
 export default function App() {
   const isOwnerPath = useLocation().pathname.includes("owner");
@@ -14,6 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<AllRooms />} />
+          <Route path="/rooms/:id" element={<RoomDetails />} />
         </Routes>
       </main>
       <Footer />

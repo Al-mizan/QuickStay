@@ -9,6 +9,7 @@ DatePicker.propTypes = {
   maxDate: PropTypes.string,
   defaultValue: PropTypes.string,
   onChange: PropTypes.func,
+  required: PropTypes.bool,
 };
 
 DatePicker.defaultProps = {
@@ -17,6 +18,7 @@ DatePicker.defaultProps = {
   maxDate: "",
   defaultValue: "",
   onChange: () => {},
+  required: false,
 };
 
 export default function DatePicker({
@@ -26,6 +28,7 @@ export default function DatePicker({
   maxDate,
   defaultValue,
   onChange,
+  required,
 }) {
   const calendarRef = useRef(null);
   const popoverRef = useRef(null);
@@ -89,7 +92,9 @@ export default function DatePicker({
         ref={buttonRef}
         type="button"
         onClick={togglePopover}
-        className="input input-border dark:bg-white/10 dark:border-gray-300"
+        className={`input input-border dark:bg-white/10 dark:border-gray-300 ${
+          required && !value ? "border-red-500" : ""
+        }`}
         id={`cally-button-${id}`}
         style={{ anchorName: `--cally-${id}` }}
       >
@@ -109,6 +114,7 @@ export default function DatePicker({
           min={minDate}
           max={maxDate}
           value={value}
+          required={required}
         >
           <svg
             aria-label="Previous"

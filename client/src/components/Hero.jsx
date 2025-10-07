@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { assets } from "../assets/assets";
-import DatePicker from "./Date";
+import DatePicker from "./DatePicker";
 
 const infiniteYear = new Date(3000, 1, 1).toISOString().split("T")[0];
 const today = new Date().toISOString().split("T")[0];
@@ -17,6 +17,20 @@ export default function Hero() {
     const checkOut =
       checkOutRef.current?.querySelector("calendar-date")?.value ||
       checkOutDate;
+    // ✅ Validation check
+    if (!checkIn || !checkOut) {
+      alert(
+        "Please select both check-in and check-out dates before searching!"
+      );
+      return;
+    }
+
+    if (new Date(checkOut) < new Date(checkIn)) {
+      alert("Check-out date cannot be earlier than check-in date!");
+      return;
+    }
+
+    // ✅ Continue your logic (e.g. navigation, API call, etc.)
     console.log("Check-in:", checkIn, "Check-out:", checkOut);
   };
 
@@ -64,6 +78,7 @@ export default function Hero() {
                 minDate={today}
                 maxDate={checkOutDate || infiniteYear}
                 onChange={(date) => setCheckInDate(date)}
+                required
               />
             </div>
             <div ref={checkOutRef}>
@@ -74,6 +89,7 @@ export default function Hero() {
                 minDate={checkInDate || today}
                 maxDate={infiniteYear}
                 onChange={(date) => setCheckOutDate(date)}
+                required
               />
             </div>
             <button
